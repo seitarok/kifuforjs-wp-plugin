@@ -65,9 +65,12 @@ function board_func( $atts ) {
 
     $attr = '';
     foreach ( $a as $key => $value ) {
+      $value = strip_tags($value); // htmlタグを削除
+      $search = array ("'^\s+'","'\s{2,}'","'\s+$'");
+      $replace = array ("","\n","");
+      $value = preg_replace ($search, $replace, $value); // 不要な改行を削除
       $attr .= " {$key}='{$value}'";
     }
-    $attr = preg_replace('/<[Bb][Rr](\s+\/)?>/', '', $attr); // textから<br>タグを削除
     return "<div class='board' {$attr}></div>";
 }
 add_shortcode( 'board', 'board_func' );

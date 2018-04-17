@@ -27,8 +27,15 @@ function after_kifu_load(){
   var e = $('#'+board_id);
   e.find('.mochi1').insertBefore(e.find('.ban')); // 持ち駒をbanの上に移動
   e.find('.mochi0').insertAfter(e.find('.ban'));  // 持ち駒をbanの下に移動
+
+  e.find('.mochi .forklist').css({'width':'auto','max-width':'80px','font-size':'12px'});
+  e.find('.mochi .forklist').insertAfter(e.find('.kifuforjs button:contains("反転")'));
+  e.find('.mochi .kifulist').css({'width':'auto','max-width':'120px','font-size':'12px'});
+  e.find('.mochi .kifulist').attr('size','');
+  e.find('.mochi .kifulist').insertAfter(e.find('.kifuforjs button:contains("反転")'));
   e.find('.kifuforjs > tbody > tr:first-child > td:first-child').remove(); // banの左のtdタグを削除
   e.find('.kifuforjs > tbody > tr:first-child > td:last-child').remove(); // banの右のtdタグを削除
+  e.find('.kifuforjs button:contains("credit")').remove();
 
   // tesuuを進める処理
   var tesuu = e.attr('tesuu');
