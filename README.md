@@ -6,9 +6,9 @@ javascriptで動作する棋譜再生将棋盤[Kifu-for-JS](https://github.com/n
 
 ## インストール方法
 
-  1. githubの[Download ZIP](https://github.com/seitarok/kifuforjs-wp-plugin/archive/master.zip)からkifuforjs-wp-plugin.zipをダウンロードする。
+  1. githubの[Download ZIP](https://github.com/seitarok/kifuforjs-wp-plugin/archive/master.zip)からkifuforjs-wp-plugin-master.zipをダウンロードする。
   2. Wordpressの管理画面から[プラグイン]→[新規追加]→[プラグインのアップロード]を順にクリックする。
-  3. [ファイルの選択]でkifuforjs-wp-plugin.zipを選択し、[今すぐインストール]をクリックする。
+  3. [ファイルの選択]でkifuforjs-wp-plugin-master.zipを選択し、[今すぐインストール]をクリックする。
   4. Wordpressの管理画面から[プラグイン]から「kifuforjs」の[有効化]をクリックする。
 
 ## 使い方
