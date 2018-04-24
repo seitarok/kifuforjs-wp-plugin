@@ -37,25 +37,25 @@ urlとtextの両方を指定した場合、urlで指定した棋譜を優先し�
   2. アップロードしたkifファイルのURLを確認する。
   3. ブログ記事に下記のようにshortcodeを書く。
 
-    [board url=wp-content/uploads/2018/04/sample.kif]
+    [board url=http://futago-life.com/wife-support/wp-content/uploads/sites/2/2018/04/sample.kif]
 
 ### 手数を進めた状態で表示する場合
 
 tesuuに進める手数を指定する。
 
-    [board url=wp-content/uploads/2018/04/sample.kif tesuu=30]
+    [board url=http://futago-life.com/wife-support/wp-content/uploads/sites/2/2018/04/sample.kif tesuu=30]
 
 ### 反転して表示したい場合
 
 reverseに1を指定する。
 
-    [board url=wp-content/uploads/2018/04/sample.kif reverse=1]
+    [board url=http://futago-life.com/wife-support/wp-content/uploads/sites/2/2018/04/sample.kif reverse=1]
 
 ### コメント表示したい場合
 
 commentに1を指定する。
 
-    [board url=wp-content/uploads/2018/04/sample.kif comment=1]
+    [board url=http://futago-life.com/wife-support/wp-content/uploads/sites/2/2018/04/sample.kif comment=1]
 
 ## 参照
   * [javascriptで動作する棋譜再生将棋盤 Kifu-for-JS](https://github.com/na2hiro/Kifu-for-JS)
