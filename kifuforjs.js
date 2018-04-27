@@ -1,5 +1,4 @@
-var Kifu = require("Kifu");
-Kifu.settings={ImageDirectoryPath: args.ImageDirectoryPath};
+var Kifu = KifuForJS
 
 var i = 0;
 var board_id_list = [];
@@ -11,13 +10,13 @@ $(".board").each(function(index, element){
   // console.log(url);
   var text = $(element).attr('text'); // kifテキストを取得
   // console.log(text);
-  Kifu.loadCallback(after_kifu_load);
   board_id_list.push(board_id);
   if(url !== void 0 && url != ''){
-    Kifu.load(url, board_id); // urlからkifuforjsを表示
+    Kifu.load(url, board_id); // urlからKifuForJSを表示
   }else if(text !== void 0 && text != ''){
-    Kifu.loadString(text, board_id); // 文字列からkifuforjsを表示
+    Kifu.loadString(text, board_id); // 文字列からKifuForJSを表示
   }
+  after_kifu_load();
   i++;
 })
 
@@ -57,5 +56,5 @@ function after_kifu_load(){
     if(comment != 1){
       e.find('.kifuforjs textarea').css('display', 'none');
     }
-  },1);
+  },100);
 }

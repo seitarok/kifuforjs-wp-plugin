@@ -1,36 +1,34 @@
 <?php
 /**
 * @package kifuforjs
-* @version 1.0
+* @version 2.0.0
 */
 /*
 Plugin Name: kifuforjs
 Plugin URI: https://github.com/seitarok/kifuforjs-wp-plugin
 Description: ブログ記事にkifuforjsを表示する
 Author: seitarok
-Version: 1.0
+Version: 2.0.0.0
 Author URI: http://futago-life.com/wife-support
 */
 
 add_action( 'wp_enqueue_scripts', 'enqueue_kifuforjs' );
 function enqueue_kifuforjs() {
-	wp_enqueue_style( 'kifuforjs', plugins_url('Kifu-for-JS/css/kifuforjs.css', __FILE__));
-	wp_enqueue_script(
-		'kifuforjs',
-		plugins_url('Kifu-for-JS/out/kifuforjs.js', __FILE__),
-		array( 'jquery' ),
-		false,
-		true
-	);
+  wp_enqueue_script(
+    'kifu-for-js-2.0.0',
+    plugins_url('kifu-for-js-2.0.0.min.js', __FILE__),
+    array( 'jquery' ),
+    false,
+    true
+  );
   wp_enqueue_style( 'kifuforjs-wp-plugin', plugins_url('kifuforjs.css', __FILE__));
   wp_enqueue_script(
     'kifuforjs-wp-plugin',
     plugins_url('kifuforjs.js', __FILE__),
-    array( 'kifuforjs' ),
+    array( 'kifu-for-js-2.0.0' ),
     false,
     true
   );
-  wp_localize_script('kifuforjs-wp-plugin', 'args', array('ImageDirectoryPath' => plugins_url('Kifu-for-JS/images', __FILE__)));
 }
 
 // KIF, KI2, CSA, JKF ファイルをアップロード可能に
@@ -55,6 +53,7 @@ add_filter('ext2type', 'custom_ext2type');
 // shortcodeの登録
 // [board text="kifu text" url="kifu file path" tesuu=number_of_tesuu reverse=1 comment=1]
 function board_func( $atts ) {
+    $id = 0;
     $a = shortcode_atts( array(
         'text' => null,
         'url' => null,
@@ -66,12 +65,13 @@ function board_func( $atts ) {
     $attr = '';
     foreach ( $a as $key => $value ) {
       $value = strip_tags($value); // htmlタグを削除
-      $search = array ("'^\s+'","'\s{2,}'","'\s+$'");
-      $replace = array ("","\n","");
+      $search = array ("'^\s+'","'\s{2,}'","'\s+$'","'手数.*指手.*消費時間.*\n'");
+      $replace = array ("","\n","","手数----指手---------消費時間--\n");
       $value = preg_replace ($search, $replace, $value); // 不要な改行を削除
       $attr .= " {$key}='{$value}'";
     }
-    return "<div class='board' {$attr}></div>";
+    $html = "<div class='board' {$attr}></div>";
+    return $html;
 }
 add_shortcode( 'board', 'board_func' );
 
